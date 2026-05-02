@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Training artifacts (large, regenerable)
+logs/
+models/
+runs/
+wandb/
+*.zip
+*.pkl
+*.pth
+*.ckpt
+
+# Claude Code
+.claude/
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*:Zone.Identifier
+
+# Environment
+.env
+*.local
+
+# Data
+*.csv
+*.h5
+*.npz

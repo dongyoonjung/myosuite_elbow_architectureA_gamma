@@ -1,0 +1,55 @@
+# Architecture A+γ default training config.
+# CLI overrides win over this file (this is reference only — train script reads
+# args, not yaml. Used as documentation of "what we ran.")
+
+train:
+  timesteps: 2_000_000
+  n_envs: 16
+  vec_env: subproc
+  device: auto
+  seed: 42
+  tag: AGamma_default
+
+env:
+  k_th: 0.10
+  k_v: 1.0
+  tau_gamma: 0.100
+  gamma_init: 0.5
+  # forwarded to A
+  G_Ia: 0.20
+  G_Ib: 0.10
+  G_rec: 0.15
+  L_th_ratio: 1.05
+  F_half_ratio: 0.25
+  spinal_delay_ms: 20
+  Ia_soft_step: false
+  G_II: 0.0
+  II_deadband_ratio: 0.02
+  alpha: 1.0
+  alpha_cont: 1.0
+  beta: 0.0
+  gamma: 0.05      # may need to be lowered (post-reflex muscle_input is larger)
+  delta: 0.005
+  sigma_ratio_init: 0.30
+  sigma_ratio_final: 0.10
+  control_dt: 0.020
+  cortex_delay_ms: 100
+  min_delta_deg: 30.0
+  T_speed_ref_deg: 180.0
+  T_base_sec: 1.5
+  timeout_mult: 1.5
+  pos_margin_deg: 5.0
+  vel_limit: 15.0
+  term_penalty: -50.0
+
+ppo:
+  lr: 3.0e-4
+  n_steps: 1024
+  batch_size: 128
+  n_epochs: 10
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  ent_coef: 0.005
+  vf_coef: 0.5
+  max_grad_norm: 0.5
